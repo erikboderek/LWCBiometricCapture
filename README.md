@@ -1,7 +1,7 @@
-# LWCPhotoCapture
-Here are two LWCs that can be used in a flow to capture a user's photo using the computer's camera, as well as their signature. Both LWCs have some configuration options to meet most needs. 
+# LWCBiometricCapture
+Here are two LWCs that can be used in a flow to capture a user's photo using the computer's camera, as well as their signature, and upload those as images to any record.
 
-Uses the web cam to capture profile picture. Also captures signature.
+Both LWCs have some configuration options to meet most needs. 
 
 ## Photo Capture
 
