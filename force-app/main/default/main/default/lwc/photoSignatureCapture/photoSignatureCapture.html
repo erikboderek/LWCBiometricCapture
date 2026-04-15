@@ -1,0 +1,119 @@
+<template>
+    <div class="capture-container">
+        <template if:true={currentStep} if:equal={currentStep} value="photo">
+            <div class={isPhotoStepActive}>
+                <h2 class="step-heading">1. Capture Applicant Photo
+                    <template if:true={photoCaptured}>
+                        <lightning-icon icon-name="utility:success" alternative-text="Photo Captured" variant="success" size="small" class="slds-var-m-left_small"></lightning-icon>
+                    </template>
+                </h2>
+                
+                <div class="camera-review-grid">
+                    
+                    <div class="camera-area">
+                        <template if:false={photoCaptured}>
+                            <video class={videoHiddenClass} crossorigin="anonymous" autoplay playsinline></video>
+                            <div class="capture-overlay"></div>
+                        </template>
+
+                        <template if:true={showPlaceholder}>
+                            <div class="camera-placeholder">
+                                <p>Click 'Start Camera' to begin capture.</p>
+                            </div>
+                        </template>
+                    </div>
+
+                    <div class="captured-area">
+                        <div class="capture-overlay-label">CAPTURED IMAGE</div>
+                        <template if:true={photoCaptured}>
+                            <img src={_displayPhotoDataUrl} alt="Captured Photo" class="captured-image-style"/>
+                        </template>
+                        <template if:false={photoCaptured}>
+                            <div class="captured-placeholder">
+                                <p>Captured image will appear here.</p>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+                
+                <canvas class="photo-canvas hidden"></canvas>
+
+                <div class="flex-buttons">
+                    <lightning-button 
+                        label="Start Camera"
+                        onclick={handleStartCameraClick} 
+                        disabled={cameraActive}
+                        variant="brand"
+                        class="slds-m-right_x-small"
+                        if:false={photoCaptured}>
+                    </lightning-button>
+                    
+                    <lightning-button 
+                        label="Capture Photo"
+                        onclick={handleCapturePhoto} 
+                        variant="success"
+                        class="slds-m-right_x-small"
+                        if:true={cameraActive}
+                        if:false={photoCaptured}>
+                    </lightning-button>
+                    
+                    <lightning-button 
+                        label="Retake Photo"
+                        onclick={handleRetakePhoto} 
+                        variant="neutral"
+                        class="slds-m-right_x-small"
+                        if:true={photoCaptured}>
+                    </lightning-button>
+
+                    <lightning-button 
+                        label="Next: Signature"
+                        onclick={handleNextToSignature} 
+                        disabled={isNextDisabled}
+                        variant="brand">
+                    </lightning-button>
+                </div>
+            </div>
+        </template>
+        
+        <template if:true={currentStep} if:equal={currentStep} value="signature">
+             <div class={isSignatureStepActive}> 
+                <h2 class="step-heading">2. Capture Signature
+                    <template if:true={signatureCaptured}>
+                        <lightning-icon icon-name="utility:success" alternative-text="Signature Captured" variant="success" size="small" class="slds-var-m-left_small"></lightning-icon>
+                    </template>
+                </h2>
+                
+                <div class="slds-var-m-bottom_medium">
+                    <canvas 
+                        class="signature-canvas" 
+                        width="400" 
+                        height="150"
+                        onmousedown={handleSignatureStart}
+                        onmousemove={handleSignatureDraw}
+                        onmouseup={handleSignatureEnd}
+                        ontouchstart={handleSignatureStart}
+                        ontouchmove={handleSignatureDraw}
+                        ontouchend={handleSignatureEnd}>
+                    </canvas>
+                </div>
+
+                <div class="flex-buttons">
+                    <lightning-button 
+                        label="Back to Photo"
+                        onclick={handleBackToPhoto}
+                        variant="neutral"
+                        class="slds-m-right_x-small">
+                    </lightning-button>
+
+                    <lightning-button 
+                        label="Clear Signature"
+                        onclick={handleClearSignature}
+                        variant="destructive-text"
+                        class="slds-m-right_x-small">
+                    </lightning-button>
+                    
+                    </div>
+            </div>
+        </template>
+    </div>
+</template>

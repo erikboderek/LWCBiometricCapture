@@ -1,0 +1,80 @@
+<template>
+    <div class="capture-container">
+        <div> 
+                        <h2 class="step-heading">{headingText}
+
+                <template if:true={photoCaptured}>
+                    <lightning-icon icon-name="utility:success" alternative-text="Photo Captured" variant="success" size="small" class="slds-var-m-left_small"></lightning-icon>
+                </template>
+            </h2>
+
+           <lightning-formatted-rich-text 
+                value={photoInstructions}
+                class="slds-text-body_small slds-var-m-bottom_medium slds-text-color_weak">
+            </lightning-formatted-rich-text>
+            
+            <div class="camera-review-grid">
+                
+                <div class="camera-area">
+                    <template if:false={photoCaptured}>
+                        <video class={videoHiddenClass} crossorigin="anonymous" autoplay playsinline></video>
+                        
+                        <div class={captureOverlayClass}>
+                            <template if:true={showPlaceholder}>
+                                <p class="overlay-text">Click 'Start Camera' to begin capture.</p>
+                            </template>
+                        </div>
+                        
+                    </template>
+
+                    <template if:true={showPlaceholder}>
+                        <div class="camera-placeholder">
+                            </div>
+                    </template>
+                </div>
+
+                <div class="captured-area">
+                    <div class="capture-overlay-label">CAPTURED IMAGE</div>
+                    <template if:true={photoCaptured}>
+                        <img src={_displayPhotoDataUrl} alt="Captured Photo" class="captured-image-style"/>
+                    </template>
+                    <template if:false={photoCaptured}>
+                        <div class="captured-placeholder">
+                            <p>Captured image will appear here.</p>
+                        </div>
+                    </template>
+                </div>
+            </div>
+            
+            <canvas class="photo-canvas hidden"></canvas>
+
+            <div class="flex-buttons">
+                <lightning-button 
+                    label="Start Camera"
+                    onclick={handleStartCameraClick} 
+                    disabled={cameraActive}
+                    variant="brand"
+                    class="slds-m-right_x-small"
+                    if:false={photoCaptured}>
+                </lightning-button>
+                
+                <lightning-button 
+                    label="Capture Photo"
+                    onclick={handleCapturePhoto} 
+                    variant="success"
+                    class="slds-m-right_x-small"
+                    if:true={cameraActive}
+                    if:false={photoCaptured}>
+                </lightning-button>
+                
+                <lightning-button 
+                    label="Retake Photo"
+                    onclick={handleRetakePhoto} 
+                    variant="neutral"
+                    class="slds-m-right_x-small"
+                    if:true={photoCaptured}>
+                </lightning-button>
+            </div>
+        </div>
+    </div>
+</template>

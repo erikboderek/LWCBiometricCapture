@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Photo Capture</masterLabel>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+        <property name="headingText" type="String" label="Input: Step Heading Text" default="Capture Applicant Photo" role="inputOnly"/>
+        <property name="photoInstructions" type="String" label="Input: Photo Instructions Text" default="Ensure the applicant's face is clearly visible within the frame. Only the current photo will be captured; do not take a picture of a screen or existing photo." role="inputOnly"/>
+        <property name="photoDataUrl" type="String" label="Output: Captured Photo Base64" role="outputOnly" /> 
+        <property name="photoCaptured" type="Boolean" label="Output: Photo Captured Flag" role="outputOnly" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

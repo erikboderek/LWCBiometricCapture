@@ -1,0 +1,114 @@
+:host {
+    display: block;
+    padding: 16px;
+    background-color: #f7f9fa; /* Light background for the component */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.step-heading {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #0070d2;
+    margin-bottom: 16px;
+}
+
+/* --- GRID LAYOUT for Side-by-Side Review (Two equal columns) --- */
+.camera-review-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 16px; 
+    margin-bottom: 24px;
+    /* Removed min-height: 250px; here */
+}
+
+/* Area Styling (both columns) */
+.camera-area, .captured-area {
+    position: relative;
+    width: 100%;
+    height: 250px; /* ⭐ FIX: Changed min-height to fixed height for stability ⭐ */
+    background-color: #eef1f5;
+    border: 1px solid #c9c9c9;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* --- Camera Feed and Placeholder Styling --- */
+.video-feed {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+.capture-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65%; /* Keep width as a percentage of the parent */
+    aspect-ratio: 1 / 1; /* ⭐ FIX: Forces height to be equal to width, creating a perfect circle ⭐ */
+    border: 2px dashed rgba(255, 255, 255, 0.8);
+    border-radius: 50%; 
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5); 
+   
+}
+.camera-placeholder, .captured-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #6a7c93;
+    font-size: 1rem;
+    background-color: #f4f6f9;
+}
+
+/* --- Captured Image and Label Styling --- */
+.capture-overlay-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-align: center;
+    z-index: 10;
+}
+
+.captured-image-style {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- Signature Pad Styling --- */
+.signature-canvas {
+    border: 1px solid #ccc;
+    background-color: white;
+    touch-action: none; 
+}
+
+/* --- UX/Utility Classes --- */
+
+/* Style for greying out inactive content */
+.deactivated {
+    opacity: 0.5; /* Makes content partially transparent */
+    pointer-events: none; /* Disables all clicks on elements inside */
+}
+
+.hidden {
+    display: none !important;
+}
+
+.flex-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
