@@ -39,24 +39,26 @@ In your flow, add an Action and select UploadBiometricFiles. Put in the output v
 
 <img width="1170" height="1456" alt="image" src="https://github.com/user-attachments/assets/c6bfd69d-dd10-4472-b36f-4ac98d9c4e58" />
 
-
-
-
 ## Deploy
 
-[![Deploy to Salesforce](https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png)](https://githubsfdeploy.herokuapp.com?owner=erikboderek&repo=LWCPhotoCapture&ref=main)
+[![Deploy to Salesforce](https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png)](https://githubsfdeploy.herokuapp.com?owner=erikboderek&repo=LWCBiometricCapture&ref=main)
 
 Click the button above to deploy this package directly to your Salesforce org.
 
 ## Package Contents
 
-This package contains **2** metadata components across **1** types.
+This package contains **3** metadata components across **2** types.
 
 | Metadata Type | Count |
 |--------------|-------|
+| ApexClass | 1 |
 | LightningComponentBundle | 2 |
 
 ## Component Inventory
+
+### ApexClass
+
+- `BiometricUploadService`
 
 ### LightningComponentBundle
 
@@ -74,8 +76,8 @@ This package contains **2** metadata components across **1** types.
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/erikboderek/LWCPhotoCapture.git
-   cd LWCPhotoCapture
+   git clone https://github.com/erikboderek/LWCBiometricCapture.git
+   cd LWCBiometricCapture
    ```
 
 2. Authenticate with your Salesforce org:
