@@ -1,5 +1,46 @@
 # LWCPhotoCapture
+Here are two LWCs that can be used in a flow to capture a user's photo using the computer's camera, as well as their signature. Both LWCs have some configuration options to meet most needs. 
+
 Uses the web cam to capture profile picture. Also captures signature.
+
+## Photo Capture
+
+Add the photo capture to a screen flow.
+
+<img width="2240" height="1022" alt="image" src="https://github.com/user-attachments/assets/192423d8-edb4-4f1a-ad30-fb2b616e20af" />
+
+There's two input variables you can configure within the screen flow.
+
+**Photo Instructions Text:** This is the text on the screen. I like using text templates here. The LWC can show both plain and rich text. If you're not familiar with text templates, this is what they can look like.
+
+<img width="1602" height="994" alt="image" src="https://github.com/user-attachments/assets/ea8b1511-4235-4f18-8863-7294212f39fb" />
+
+**Step Heading Text:** This is the heading at the top of the screen.
+
+<img width="1992" height="834" alt="image" src="https://github.com/user-attachments/assets/2f1d257d-48bd-407b-a2e9-bfa620c4bd71" />
+
+There are two output variables: **PhotoCaptured** and **Captured Photo Base 64**. These can be found in the **Advanced** section. The former is a boolean field to ensure that the photo is captured. You can use this in a decision element in your flow. For the Base 64 output, create a text variable and insert it here. This will be used by an invocable action in a moment.
+
+## Signature Capture
+Nearly identical to the photo capture LWC.
+<img width="2232" height="996" alt="image" src="https://github.com/user-attachments/assets/bcc33dd5-26fe-4233-9c4d-a8d58b271435" />
+
+**Signature Disclaimer Text:** This is the text on the screen. Again, consider using a text template.
+
+**Step Heading Text:** This is the heading at the top of the screen.
+
+<img width="2058" height="676" alt="image" src="https://github.com/user-attachments/assets/eea86edd-f819-4c13-90db-111e49b6e4e3" />
+
+There are also two output variables: SignatureCaptured and Captured Signature Base 64. Same instructions as above regarding variables.
+
+## Apex
+
+In your flow, add an Action and select UploadBiometricFiles. Put in the output values for the components, as well as the record ID, and the title for your files. Your title variables do not need to have the file extension in them (i.e. .PNG). Everything will be saved as a JPEG. If that's an issue, let me know and I can look into tweaking the code.
+
+<img width="1170" height="1456" alt="image" src="https://github.com/user-attachments/assets/c6bfd69d-dd10-4472-b36f-4ac98d9c4e58" />
+
+
+
 
 ## Deploy
 
