@@ -100,7 +100,7 @@ Tests: [`BiometricUploadServiceTest.cls`](force-app/main/default/main/default/cl
 
 ---
 
-## Image quality and sizes
+## Image Quality, Sizes, and Format
 
 Defaults live in [`photoCaptureCameraUtility.js`](force-app/main/default/main/default/lwc/photoCaptureCameraUtility/photoCaptureCameraUtility.js).
 
@@ -130,7 +130,7 @@ One-click deploy of this repo’s default branch: [LWCBiometricCapture](https://
 
 ---
 
-## Package contents
+## Package Contents
 
 Source root: [`force-app/`](force-app/). Metadata under [`force-app/main/default/main/default/`](force-app/main/default/main/default/). Manifest: [`manifest/package.xml`](manifest/package.xml).
 
@@ -145,7 +145,7 @@ API versions: see each component’s `*-meta.xml`; project `sourceApiVersion` is
 
 ---
 
-## Manual deployment
+## Manual Deployment
 
 ### Prerequisites
 
