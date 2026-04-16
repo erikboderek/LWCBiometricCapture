@@ -68,14 +68,6 @@
     pointer-events: auto;
 }
 
-/* Style when the person is "in frame" and ready to capture */
-.capture-overlay.ready {
-    border-color: #4CAF50; 
-    border-style: solid; 
-    border-width: 4px; 
-    box-shadow: 0 0 0 9999px rgba(76, 175, 80, 0.3);
-}
-
 .camera-placeholder, .captured-placeholder {
     display: flex;
     justify-content: center;
@@ -110,18 +102,7 @@
     display: block;
 }
 
-/* --- Signature Pad Styling (Used in signatureCapture.css only) --- */
-.signature-canvas {
-    border: 1px solid #ccc;
-    background-color: white;
-    touch-action: none; 
-}
-
 /* --- UX/Utility Classes --- */
-.deactivated {
-    opacity: 0.5;
-    pointer-events: none;
-}
 
 .hidden {
     display: none !important;

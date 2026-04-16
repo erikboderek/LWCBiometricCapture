@@ -2,11 +2,13 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
   <types>
     <members>BiometricUploadService</members>
+    <members>BiometricUploadServiceTest</members>
     <name>ApexClass</name>
   </types>
   <types>
+    <members>photoCaptureCameraUtility</members>
     <members>photoCapture</members>
-    <members>photoSignatureCapture</members>
+    <members>signatureCapture</members>
     <name>LightningComponentBundle</name>
   </types>
   <version>63.0</version>

@@ -62,8 +62,9 @@ This package contains **3** metadata components across **2** types.
 
 ### LightningComponentBundle
 
+- `photoCaptureCameraUtility` (shared camera + JPEG helpers; not exposed)
 - `photoCapture`
-- `photoSignatureCapture`
+- `signatureCapture`
 
 ## Manual Deployment
 

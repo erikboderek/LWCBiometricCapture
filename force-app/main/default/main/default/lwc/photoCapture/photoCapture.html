@@ -19,7 +19,7 @@
                     <template if:false={photoCaptured}>
                         <video class={videoHiddenClass} crossorigin="anonymous" autoplay playsinline></video>
                         
-                        <div class={captureOverlayClass}>
+                        <div class="capture-overlay">
                             <template if:true={showPlaceholder}>
                                 <p class="overlay-text">Click 'Start Camera' to begin capture.</p>
                             </template>
@@ -52,27 +52,25 @@
                 <lightning-button 
                     label="Start Camera"
                     onclick={handleStartCameraClick} 
-                    disabled={cameraActive}
+                    disabled={startCameraDisabled}
                     variant="brand"
-                    class="slds-m-right_x-small"
-                    if:false={photoCaptured}>
+                    class="slds-m-right_x-small">
                 </lightning-button>
                 
                 <lightning-button 
                     label="Capture Photo"
                     onclick={handleCapturePhoto} 
+                    disabled={capturePhotoDisabled}
                     variant="success"
-                    class="slds-m-right_x-small"
-                    if:true={cameraActive}
-                    if:false={photoCaptured}>
+                    class="slds-m-right_x-small">
                 </lightning-button>
                 
                 <lightning-button 
                     label="Retake Photo"
                     onclick={handleRetakePhoto} 
+                    disabled={retakePhotoDisabled}
                     variant="neutral"
-                    class="slds-m-right_x-small"
-                    if:true={photoCaptured}>
+                    class="slds-m-right_x-small">
                 </lightning-button>
             </div>
         </div>
